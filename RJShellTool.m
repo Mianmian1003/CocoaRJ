@@ -893,7 +893,7 @@ retry:
 
 		goto retry;
 	}
-	close(bpf);//shouldnt reach here
+//    close(bpf);//shouldnt reach here
 	return 0;
 }
 

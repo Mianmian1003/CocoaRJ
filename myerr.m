@@ -43,7 +43,7 @@ err_dump(const char *fmt, ...)
     err_doit(1, fmt, ap);
     va_end(ap);
     abort();		/* dump core and terminate */
-    exit(1);		/* shouldn't get here */
+//    exit(1);        /* shouldn't get here */
 }
 
 /* Nonfatal error unrelated to a system call.

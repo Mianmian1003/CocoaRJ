@@ -15,4 +15,4 @@ void FillNetParameter(unsigned char ForFill[]);
 
 unsigned char Alog(unsigned char BForAlog);
 
-void Blog();
+void Blog(void);
