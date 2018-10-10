@@ -23,7 +23,7 @@ These notices must be retained in any copies of any part of this
 documentation and/or software.*/
 
 #ifndef MD5_H
-#define MD5_HMD5_H
+#define MD5_H
 
 /* POINTER defines a generic pointer type */
 typedef unsigned char *POINTER;

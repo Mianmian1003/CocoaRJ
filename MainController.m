@@ -162,7 +162,7 @@ static OSStatus GetToolPath(CFStringRef bundleID, CFStringRef toolName, char *to
 	[NSApp setApplicationIconImage: myImage];
 	
 	[detail setStringValue:@""];
-	[detail setNeedsDisplay:YES];
+//    [detail setNeedsDisplay:YES];
 
 	char        helperToolPath[PATH_MAX];
 	NSString *      bundleID;
@@ -190,9 +190,9 @@ static OSStatus GetToolPath(CFStringRef bundleID, CFStringRef toolName, char *to
 	//	ae07009948e7bc82fb04268ce297d0c1
 	//  32f7d793886888c1e4c67ff09ccce27a
 
-//    unsigned char md5check[0x10]={0x32, 0xf7, 0xd7, 0x93, 0x88, 0x68, 0x88, 0xc1, 0xe4, 0xc6, 0x7f, 0xf0, 0x9c, 0xcc, 0xe2, 0x7a};
+    unsigned char md5check[0x10]={0x32, 0xf7, 0xd7, 0x93, 0x88, 0x68, 0x88, 0xc1, 0xe4, 0xc6, 0x7f, 0xf0, 0x9c, 0xcc, 0xe2, 0x7a};
 	unsigned char temp[0x20];
-//    unsigned char md5_result[0x10];
+    unsigned char md5_result[0x10];
 	char _md5path[PATH_MAX];
 	//NSString *	bundleID;
 	//bundleID = [[NSBundle mainBundle] bundleIdentifier];
@@ -203,12 +203,12 @@ static OSStatus GetToolPath(CFStringRef bundleID, CFStringRef toolName, char *to
 	
 	fseek(htfile, 0x612, 0);
 	fread(temp, 0x20, 1, htfile);
-	/*
+	
 	MD5_CTX context;
 	MD5Init(&context);
 	
 	MD5Update(&context, temp, 0x20);
-	MD5Final(md5_result, &context);
+    MD5Final(md5_result, &context);
 	int i;
 	printf("md5:");
 	for (i = 0;i < 0x10; i++){
@@ -223,12 +223,12 @@ static OSStatus GetToolPath(CFStringRef bundleID, CFStringRef toolName, char *to
 		}
 			
 	}
-	 */
-//	printf("\n");
+	 
+	printf("\n");
 	
 	
-	//NSLog(@"md5=%s",md5_result);
-	// end md5 check
+    NSLog(@"md5=%s",md5_result);
+//     end md5 check
 	
 	authStatus = AuthorizationExecuteWithPrivileges                  
 	(authorizationRef, helperToolPath, authFlags, myArguments,
@@ -256,7 +256,7 @@ static OSStatus GetToolPath(CFStringRef bundleID, CFStringRef toolName, char *to
 				[connectItem setAction:@selector(connect:)];
 				[disconnect setEnabled:NO];
 				[self.progressIndicator stopAnimation:self];
-				[self.progressIndicator setHidden:YES];
+//                [self.progressnIndicator setHidden:YES];
 				if(childPID != -1){
 					const char* command = [[NSString stringWithFormat:@"kill -15 %d", childPID] cStringUsingEncoding:NSASCIIStringEncoding];
 					system(command);
